@@ -61,11 +61,12 @@ ul {
 
 
 li {
+	height: 50px;
 	list-style: none;
 	padding: 10px 20px;
 	color: #ffffff;
 	text-transform: capitalize;
-	font-weight: 600;
+	font-weight: 1200;
 	border: 2px solid #025f70;
 	border-radius: 5px;
 	margin-bottom: 10px;
@@ -79,6 +80,15 @@ li {
 
 li:hover {
 	background: #76CFE0;
+}
+
+li > p {
+	font-weight: normal;
+	background: none;
+	border: none;
+	float: left;
+	color: #025f70;
+	font-weight: 800;
 }
 
 li > button {

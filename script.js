@@ -18,8 +18,10 @@ function liLength() {
 
 function createListElement() {
   var li = document.createElement('li');
+  var p = document.createElement('p');
 
-  li.appendChild(document.createTextNode(input.value));
+  p.appendChild(document.createTextNode(input.value));
+  li.appendChild(p);
   ul.appendChild(li);
 
   input.value = "";
@@ -34,33 +36,35 @@ function createListElement() {
        var button2 = document.createElement('button');
        button2.appendChild(document.createTextNode("X"));
        li.appendChild(button2);
-       button2.addEventListener("click", deleteItem);
 
-      // function arrayRemove() {
-      //
-      //   for( var i = 0; i < holder.length; i++){
-      //      if ( arr[i] === deleteValue) {
-      //        arr.splice(i, 1);
-      //        i--;
-      //      }
-      //   }
-      // }
+
+       button2.addEventListener("click", deleteItem);
 
        function deleteItem() {
           li.classList.add('delete');
+          var removedItem = p.innerText.toLowerCase();
+          console.log(removedItem);
 
-     }
+          // if (holder.indexOf(removedItem) > -1) {
+          //   alert("Its in the array!");
+            for( var i = 0; i < holder.length; i++){
 
+               if ( holder[i] === removedItem) {
+
+                 holder.splice(i, 1);
+                 i--;
+               }
+          }
+    }
 }
 
 
-
 function checkRepition(){
-var newInput = input.value;
+var newInput = input.value.toLowerCase();
     if (holder.indexOf(newInput) > -1) {
       alert("You added that one already!");
     } else {
-    holder.push(input.value);
+    holder.push(newInput);
     createListElement();
     }
   }
